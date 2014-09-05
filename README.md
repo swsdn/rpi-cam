@@ -1,4 +1,4 @@
 rpi-cam
 =======
 
-scripts for taking handling rpi-cam
+scripts for handling rpi-cam
