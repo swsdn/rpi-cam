@@ -16,7 +16,9 @@ public class Camera {
 
     public Picture takePicture() {
         try {
+            LOG.info("Launching {}", raspistill);
             Runtime.getRuntime().exec(raspistill);
+            LOG.info("DONE");
             return new Picture();
         } catch (IOException e) {
             LOG.error("Can't take picture.", e);
