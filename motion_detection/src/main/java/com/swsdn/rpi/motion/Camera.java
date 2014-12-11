@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Camera {
 
     private static final Logger LOG = LoggerFactory.getLogger(Camera.class );
-    private final String raspistill = "/opt/vc/bin/raspistill -rot 180 --nopreview --timeout 1 --quality 8 --thumb none --exposure auto --output ~/photos/java-photo.jpg";
+    private final String raspistill = "/opt/vc/bin/raspistill -rot 180 --nopreview --timeout 1 --quality 8 --thumb none --exposure auto --output /tmp/java-photo.jpg";
 
     public Picture takePicture() {
         try {
