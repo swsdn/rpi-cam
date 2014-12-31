@@ -1,5 +1,6 @@
 MAILTO=krzysiek.kol@gmail.com
 30 11,20 * * * 			df -h | mail -s "df -h" krzysiek.kol@gmail.com
-0 10 * * *			uptime |mail -s "uptime" krzysiek.kol@gmail.com
+0 21 * * *			uptime |mail -s "uptime" krzysiek.kol@gmail.com
 */5 * * * * 			~/rpi-cam/measure_temp.sh
-*/15 6-19 * * * 		~/rpi-cam/take_picture.sh 
+*/15 7-16 * * * 		~/rpi-cam/take_picture.sh 
+30 3 * * *			reboot
