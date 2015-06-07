@@ -1,6 +1,12 @@
 #!/bin/sh
 
-mkdir -p /tmp/photos
-/opt/vc/bin/raspistill --mode 6 --width 640 --height 480  -rot 180 --nopreview --timeout 1 --quality 8 --thumb none --exposure auto --output /tmp/photos/`date +%Y%m%d-%H%M%S`.jpg
-
-
+mkdir -p ~/photos_fast
+/opt/vc/bin/raspistill \
+-rot 180 \
+--width 320 --height 240 \
+--nopreview \
+--timeout 1 \
+--quality 1 \
+--thumb none \
+--stats \
+--output ~/photos_fast/$1
