@@ -1,6 +1,6 @@
 #!/bin/bash
 
-THRESHOLD=100
+THRESHOLD=10
 FILES=(*.jpg)
 ONE="one.jpg"
 TWO="two.jpg"
@@ -20,8 +20,10 @@ do
         	MOTION=$(motiontrack -s 9 ${FILES[0]} ${FILES[1]}  2>/dev/null |head -n1)
         	if [ "$MOTION" -gt "$THRESHOLD" ]; then
                		echo `date` "Motion! value: $MOTION";
+			#~/rpi-cam/take_picture.sh
+			~/rpi-cam/take_video.sh
 		else
-			echo `date` "No motion."
+			echo `date` "No motion. value: $MOTION"
         	fi
 	fi
 done
