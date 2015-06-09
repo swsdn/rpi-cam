@@ -8,5 +8,6 @@ mkdir -p ~/photos_fast
 --timeout 1 \
 --quality 75 \
 --thumb none \
+--drc high \
 --stats \
 --output ~/photos_fast/$1

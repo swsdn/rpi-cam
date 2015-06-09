@@ -4,12 +4,10 @@
 --rotation 180 \
 --width 1440 \
 --height 1080 \
---verbose \
 --nopreview \
---timeout 10000 \
+--timeout 30000 \
 --framerate 30 \
---bitrate 3500000 \
+--qp 32 \
+--bitrate 0 \
+--awb auto \
 --output ~/videos/vid_`date +%Y%m%d-%H%M%S`.h264
-
-#`date +%Y%m%d-%H%M%S`.jpg
-
