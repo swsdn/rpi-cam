@@ -1,5 +1,8 @@
 #!/bin/sh
 
+TMP=/tmp/$RANDOM.h264
+OUTPUT=~/videos/vid_`date +%Y%m%d-%H%M%S`.mp4
+
 /opt/vc/bin/raspivid \
 --rotation 180 \
 --width 1440 \
@@ -10,4 +13,8 @@
 --qp 32 \
 --bitrate 0 \
 --awb auto \
---output ~/videos/vid_`date +%Y%m%d-%H%M%S`.h264
+--output $TMP
+
+MP4Box -add $TMP $OUTPUT.mp4
+rm $TMP
+
