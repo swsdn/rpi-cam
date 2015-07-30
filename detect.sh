@@ -3,7 +3,7 @@
 THRESHOLD=10
 ONE="one.jpg"
 TWO="two.jpg"
-SNAPSHOT_INTERVAL=300
+SNAPSHOT_INTERVAL=1800
 lastStamp=0
 
 ~/rpi-cam/take_picture_fast.sh $ONE
