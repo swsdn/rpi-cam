@@ -8,7 +8,7 @@ OUTPUT=~/videos/vid_`date +%Y%m%d-%H%M%S`.mp4
 --width 1440 \
 --height 1080 \
 --nopreview \
---timeout 30000 \
+--timeout 15000 \
 --framerate 30 \
 --qp 32 \
 --bitrate 0 \
