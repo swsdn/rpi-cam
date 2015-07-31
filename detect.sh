@@ -25,6 +25,8 @@ do
         	if (( "$MOTION" > "$THRESHOLD" )); then
                		echo `date` "Motion! value: $MOTION" >> $LOG
 			#~/rpi-cam/take_picture.sh
+			# prevent comparison from before taking video
+			rm ${FILES[0]} ${FILES[1]}
 			~/rpi-cam/take_video.sh
 		else
 			echo `date` "No motion. value: $MOTION" >> $LOG
