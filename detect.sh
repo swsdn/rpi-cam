@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LOG=~/photos_fast/detect.log
-THRESHOLD=10
+THRESHOLD=50
 ONE="one.jpg"
 TWO="two.jpg"
 SNAPSHOT_INTERVAL=1800
