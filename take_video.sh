@@ -15,6 +15,6 @@ OUTPUT=~/videos/vid_`date +%Y%m%d-%H%M%S`.mp4
 --awb auto \
 --output $TMP
 
-MP4Box -add $TMP $OUTPUT.mp4
+MP4Box -add $TMP $OUTPUT
 rm $TMP
 
