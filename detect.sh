@@ -1,5 +1,10 @@
 #!/bin/bash
 
+MOTIONTRACK=/usr/local/bin/motiontrack
+TAKE_PHOTO_FAST=~/rpi-cam/take_picture_fast.sh
+TAKE_SNAPSHOT=~/rpi-cam/take_picture.sh
+TAKE_VIDEO=~/rpi-cam/take_video.sh
+
 LOG=~/photos_fast/detect.log
 THRESHOLD=50
 ONE="one.jpg"
@@ -8,11 +13,11 @@ SNAPSHOT_INTERVAL=1800
 lastStamp=0
 
 touch $LOG
-~/rpi-cam/take_picture_fast.sh $ONE
+$TAKE_PHOTO_FAST $ONE
 next=$TWO
 while true
 do
-        ~/rpi-cam/take_picture_fast.sh $next
+        $TAKE_PHOTO_FAST $next
 	if [ "$next" == "$TWO" ]; then
 		next=$ONE
 	else
@@ -21,13 +26,12 @@ do
 
 	FILES=(*.jpg)
 	if (( "${#FILES[@]}" > "1" )); then
-        	MOTION=$(motiontrack -s 9 ${FILES[0]} ${FILES[1]}  2>/dev/null |head -n1)
-        	if (( "$MOTION" > "$THRESHOLD" )); then
+        	MOTION=$($MOTIONTRACK -s 9 ${FILES[0]} ${FILES[1]}  2>/dev/null |head -n1)
+        	if (( "$MOTION" > $THRESHOLD )); then
                		echo `date` "Motion! value: $MOTION" >> $LOG
-			#~/rpi-cam/take_picture.sh
 			# prevent comparison from before taking video
 			rm ${FILES[0]} ${FILES[1]}
-			~/rpi-cam/take_video.sh
+			$TAKE_VIDEO
 		else
 			echo `date` "No motion. value: $MOTION" >> $LOG
         	fi
@@ -37,7 +41,7 @@ do
 	if (( "$STAMP" >= "$SNAPSHOT_INTERVAL" )); then
 		lastStamp=$(date +%s)
 		echo "Taking snapshot" >> $LOG
-		~/rpi-cam/take_picture.sh
+		$TAKE_SNAPSHOT
 	fi
 done
 
