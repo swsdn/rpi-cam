@@ -4,4 +4,3 @@ MAILTO=x@gmail.com
 */5 * * * * 			~/rpi-cam/measure_temp.sh
 #*/15 7-16 * * * 		~/rpi-cam/take_picture.sh 
 30 3 * * *			reboot
-0 4 * * *             /root/photos_fast/run-detector.sh
