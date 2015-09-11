@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TMP=/tmp/$RANDOM.h264
-OUTPUT=~/videos/vid_`date +%Y%m%d-%H%M%S`.mp4
+OUTPUT=~/videos/`date +%Y%m%d-%H%M%S`_$1.mp4
 
 /opt/vc/bin/raspivid \
 --rotation 180 \

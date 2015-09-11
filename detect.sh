@@ -6,7 +6,7 @@ TAKE_SNAPSHOT=~/rpi-cam/take_picture.sh
 TAKE_VIDEO=~/rpi-cam/take_video.sh
 
 LOG=~/photos_fast/detect.log
-THRESHOLD=50
+THRESHOLD=72
 ONE="one.jpg"
 TWO="two.jpg"
 SNAPSHOT_INTERVAL=1800
@@ -27,11 +27,11 @@ do
 	FILES=(*.jpg)
 	if (( "${#FILES[@]}" > "1" )); then
         	MOTION=$($MOTIONTRACK -s 9 ${FILES[0]} ${FILES[1]}  2>/dev/null |head -n1)
-        	if (( "$MOTION" > $THRESHOLD )); then
+        	if (( "$MOTION" >= $THRESHOLD )); then
                		echo `date` "Motion! value: $MOTION" >> $LOG
 			# prevent comparison from before taking video
 			rm ${FILES[0]} ${FILES[1]}
-			$TAKE_VIDEO
+			$TAKE_VIDEO $MOTION
 		else
 			echo `date` "No motion. value: $MOTION" >> $LOG
         	fi
