@@ -6,7 +6,7 @@ TAKE_SNAPSHOT=~/rpi-cam/take_picture.sh
 TAKE_VIDEO=~/rpi-cam/take_video.sh
 
 LOG=~/photos_fast/detect.log
-THRESHOLD=72
+THRESHOLD=125
 ONE="one.jpg"
 TWO="two.jpg"
 SNAPSHOT_INTERVAL=1800
